@@ -16,7 +16,7 @@ git clone https://github.com/code4recovery/bmlt-angular.git
 cd bmlt-angular
 npm install
 npm start          # http://localhost:4200
-npm run build      # production build in dist/tsml-ang/browser
+npm run build      # production build in dist/bmlt-ang/browser
 ```
 
 ## NA / BMLT deployment (matthews.help/na/)
@@ -67,17 +67,6 @@ For a BMLT root server:
 feedFormat: 'bmlt',
 feedUrl: 'https://your-server.org/main_server/client_interface/json/?switcher=GetSearchResults&services[]=123',
 ```
-
-For a Meeting Guide feed (e.g. the 12 Step Meeting List WordPress plugin):
-
-```ts
-feedFormat: 'meeting-guide',
-feedUrl: 'https://your-site.org/wp-admin/admin-ajax.php?action=meetings',
-```
-
-Any feed following the [Meeting Guide spec](https://github.com/code4recovery/spec) works.
-The feed has to allow CORS from wherever you host this app, or be proxied through the same
-origin (see `fallbackFeedUrl` and `deploy/nginx-na.conf`).
 
 If you host somewhere other than `/na/`, change `baseHref` in `angular.json` (or build with
 `ng build --base-href /your-path/`) and update the paths in `deploy/`.
