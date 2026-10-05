@@ -19,10 +19,9 @@ npm start          # http://localhost:4200
 npm run build      # production build in dist/bmlt-ang/browser
 ```
 
-## NA / BMLT deployment (matthews.help/na/)
+## NA / BMLT deployment
 
-This build is configured for the Southern California NA BMLT feed on todayna.org and is served
-from **https://matthews.help/na/**.
+This build is configured for the Southern California NA BMLT feed on todayna.org
 
 - **Feed:** `src/app/settings.ts` → `feedFormat: 'bmlt'`, `feedUrl` = the todayna.org
   `GetSearchResults` URL. The app appends `get_used_formats=1` so meeting-type labels come from
@@ -42,9 +41,9 @@ from **https://matthews.help/na/**.
 ### Deploy
 
 ```bash
-./deploy/deploy.sh                        # builds and rsyncs to /var/www/matthews.help/na
+./deploy/deploy.sh                        # builds and rsyncs to /na
 sudo cp deploy/nginx-na.conf /etc/nginx/snippets/
-# add `include snippets/nginx-na.conf;` to the matthews.help server block,
+# add `include snippets/nginx-na.conf;` to the server block,
 # plus the proxy_cache_path line from the top of that file at http level
 sudo nginx -t && sudo systemctl reload nginx
 ```
